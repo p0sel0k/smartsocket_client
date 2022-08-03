@@ -11,8 +11,10 @@ pub type SocketClientResult<T> = Result<T, SocketClientError>;
 pub enum SocketClientError {
     #[error("Unexpected handshake: {0}")]
     BadHandshake(String),
+
     #[error("Io error")]
     Io(#[from] io::Error),
+
     #[error("BadEncoding")]
     BadEncoding,
 }
